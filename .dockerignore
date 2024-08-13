@@ -1,0 +1,10 @@
+.idea
+.git
+.editorconfig
+.env
+ansible
+build
+doc
+Dockerfile
+node_modules/
+tests

@@ -1,0 +1,9 @@
+# Test inventory
+# N.B.: groups and group variables are defined in ../inventory.yml
+
+all:
+  children:
+    openshift_namespaces:
+      hosts:
+        phd-assess-test:
+          isa_url_keybase_path: "/keybase/team/epfl_phdassess.test/ISA_POST_STUDENT_RESULT_URL"

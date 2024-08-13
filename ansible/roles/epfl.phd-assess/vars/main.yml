@@ -1,0 +1,33 @@
+
+---
+# vars file for epfl.phd-assess
+app_name: "phd-assess-isa"
+svc_name: "{{ app_name }}"
+route_name: "{{ app_name }}"
+phd_assess_isa_servicename: "phd-assess-isa"
+openshift_image_registry: "os-docker-registry.epfl.ch"
+openshift_local_image_registry: "docker-registry.default.svc:5000"
+phd_assess_isa_remote_image_tag: "{{openshift_image_registry}}/{{openshift_namespace}}/{{phd_assess_isa_servicename}}:latest"
+secret_name: "phd-assess.secrets"
+isa_secret_name: "phd-assess.isa.secrets"
+encryption_key_name: "PHDASSESS_ENCRYPTION_KEY"
+isa_full_url_key_name: "ISA_URL"
+deployment_envs:
+  - name: 'ZEEBE_ADDRESS'
+    value: 'zeebe-gateway:26500'
+  - name: 'ZEEBE_TASK_TYPE'
+    value: 'phdISAPostStudentResult'
+  - name: 'CONSOLE_LOG_JSON_NO_STACK_FOR_NON_ERROR'
+    value: 'true'
+  - name: 'CONSOLE_LOG_JSON_NO_FILE_NAME'
+    value: 'true'
+  - name: "{{ encryption_key_name }}"
+    valueFrom:
+      secretKeyRef:
+        name: "{{ secret_name }}"
+        key: "{{ encryption_key_name }}"
+  - name: "{{ isa_full_url_key_name }}"
+    valueFrom:
+      secretKeyRef:
+        name: "{{ isa_secret_name }}"
+        key: "{{ isa_full_url_key_name }}"

@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "moduleResolution": "Node16",
+    "rootDir": "src",
+    "outDir": "build",
+    "incremental": true,
+    "types": ["vitest/globals"]
+  },
+  "include": ["src/**/*", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
+}

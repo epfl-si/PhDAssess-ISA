@@ -1,0 +1,32 @@
+meta {
+  name: Post student assessment result
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/imoniteur_ISAI/!itfThesiss.annualReport
+  body: multipartForm
+  auth: basic
+}
+
+auth:basic {
+  username: {{process.env.ISA_POST_USERNAME}}
+  password: {{process.env.ISA_POST_PASSWORD}}
+}
+
+body:multipart-form {
+  sciper: 4159938
+  date: 19.06.2026
+  evaluation: MEETS_EXPECTATIONS
+}
+
+docs {
+  Une entrée est crée pour chaque POST.
+  
+  sciper : l’identifiant de la personne
+  
+  date: date de l’annual report au format DD.MM.YYYY
+  
+  evaluation: l’évaluation de l’annual report, au choix 'EXCEEDS_EXPECTATIONS', 'MEETS_EXPECTATIONS', 'NEEDS_SOME_IMPROVEMENT', 'UNSATISFACTORY'
+}

@@ -1,0 +1,8 @@
+/**/*.js
+*.tsbuildinfo
+.env
+ansible/ansible-tmp
+build
+/doc/API-clients/isa/.env
+node_modules/
+src/version.js

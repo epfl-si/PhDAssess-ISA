@@ -1,0 +1,15 @@
+- name: Secrets tasks
+  include_tasks:
+    file: "secrets.yml"
+    apply:
+      tags: secrets
+  tags: secrets
+
+- name: Phd assess isa tasks
+  include_tasks:
+    file: "phd_assess_isa.yml"
+    apply:
+      tags: isa
+  tags:
+    - isa-build
+    - isa-push
