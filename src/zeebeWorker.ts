@@ -60,7 +60,7 @@ const handler: ZBWorkerTaskHandler = async (
 
   const phdStudentSciper = jobVariables.phdStudentSciper ?? ''
 
-  const currentDate = new Date('2026-11-19');
+  const currentDate = new Date();
   const currentDay = String(currentDate.getDate()).padStart(2, '0');
   const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
   const currentYear = currentDate.getFullYear();
