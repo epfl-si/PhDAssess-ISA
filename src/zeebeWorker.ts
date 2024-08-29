@@ -16,8 +16,6 @@ const debug = debug_('phd-assess/zeebeWorker')
 
 const taskType = process.env.ZEEBE_TASK_TYPE ?? ''
 
-console.log(process.env.ISA_URL)
-
 const ISAUrl = new URL(process.env.ISA_URL ?? '')
 const fullUrl: string = ISAUrl.origin + ISAUrl.pathname
 const username: string = ISAUrl.username
