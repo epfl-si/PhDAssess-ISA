@@ -1,5 +1,9 @@
 {
   "version": "1",
   "name": "ISA Post student result API",
-  "type": "collection"
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
 }
