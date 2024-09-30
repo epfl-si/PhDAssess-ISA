@@ -16,10 +16,11 @@ const debug = debug_('phd-assess/zeebeWorker')
 
 const taskType = process.env.ZEEBE_TASK_TYPE ?? ''
 
+// decodeURIComponent is used to escape non URL characters, like '?'
 const ISAUrl = new URL(process.env.ISA_URL ?? '')
 const fullUrl: string = ISAUrl.origin + ISAUrl.pathname
 const username: string = ISAUrl.username
-const password: string = ISAUrl.password
+const password: string = decodeURIComponent(ISAUrl.password)
 
 debug('Precheck for valid app configuration')
 preCheckConnectionConfigurationOrExit(
