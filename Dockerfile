@@ -1,4 +1,6 @@
-FROM node:22.6-alpine AS common
+ARG BASE_IMAGE=node:22-alpine
+
+FROM $BASE_IMAGE AS common
 
 WORKDIR /app
 COPY package*.json ./
